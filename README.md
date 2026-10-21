@@ -19,9 +19,15 @@
         
 3.  **Docker option:**
     
-    -   Pull the latest MongoDB image.
+    -   Pull the latest MongoDB image. (sudo docker pull mongo:latest)
         
-    -   Run a MongoDB container.
+    -   Run a MongoDB container. (sudo docker run -d \
+  --name kindergarten-mongo \
+  -p 127.0.0.1:27017:27017 \
+  -e MONGO_INITDB_ROOT_USERNAME=myUser \
+  -e MONGO_INITDB_ROOT_PASSWORD=myPassword \
+  -v kindergarten-mongo-data:/data/db \
+  mongo:latest )
         
     -   Ensure it is accessible on port `27017`.
         
@@ -228,6 +234,8 @@
 
 -   `sudo apt install openjdk-17-jre`
 -   `java -version` 
+-(add this from chatgpt:1- export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-$(dpkg --print-architecture)"
+2-export PATH="$JAVA_HOME/bin:$PATH")
     
     -   Ensure Java 17 or higher is installed.
         
